@@ -1,7 +1,8 @@
 #login {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
   width: 100%;
   min-height: 100vh;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -12,6 +13,19 @@ form {
   align-items: flex-start;
   flex-direction: column;
   width: 100%;
+}
+.homeDiv {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 30px;
+}
+.divZaRazdvanjanje {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .formDiv {
   width: 400px;
@@ -70,4 +84,16 @@ form label {
 }
 .link {
   margin: 10px 0 0 10px;
+}
+.switchToRegisterLink {
+  color: black !important;
+}
+
+.backToHomeBtn img:hover {
+  height: 35px !important;
+  width: 35px !important;
+}
+.switchToRegisterLink:hover {
+  color: rgb(227, 187, 121) !important;
+  font-size: 16.5px;
 }
