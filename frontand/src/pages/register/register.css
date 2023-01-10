@@ -1,0 +1,72 @@
+#register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+.formDiv {
+  width: 400px;
+  height: auto;
+  background-color: rgb(242, 236, 236);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px 0px 20px 0px;
+  border-radius: 5px;
+}
+.niceToMeetDiv {
+  height: 30px;
+  padding: 3px 50px 3px 10px;
+  background-color: rgb(241, 151, 49);
+  margin-bottom: 7px;
+  margin-left: -20px;
+  border-bottom-left-radius: 10px;
+  color: #fff;
+}
+.niceToMeetDiv h2 {
+  margin: 0px;
+}
+form input {
+  background-color: rgb(242, 236, 236);
+  height: 35px;
+  width: 90%;
+  align-self: center;
+  margin-top: 0;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+form label {
+  margin-top: 10px;
+  margin-bottom: -4px;
+
+  height: 30px;
+  width: 90%;
+  align-self: center;
+}
+.RegisterButton {
+  margin-top: 50px;
+  height: 40px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  background-color: rgb(60, 106, 142);
+  color: #fff;
+  font-size: medium;
+  font-weight: 525;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.zvezdica {
+  color: rgb(241, 151, 49);
+}
+.link {
+  margin: 10px 0 0 10px;
+}
