@@ -4,25 +4,11 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Register = () => {
-  const [userSt, setUserSt] = useState({});
-  let user = {
-    ime: userSt.ime,
-    prezime: userSt.prezime,
-    email: userSt.email,
-    password: userSt.password,
-  };
+  const [ime, setIme] = useState("");
+  const [prezime, setPrezime] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleValues = async (e) => {
-    e.preventDefault();
-
-    setUserSt({
-      ime: user.ime,
-      prezime: user.prezime,
-      email: user.email,
-      password: user.password,
-    });
-  };
-  console.log(userSt);
   return (
     <div id="register">
       <div className="homeDiv">
@@ -30,24 +16,23 @@ const Register = () => {
           <img src="home-icon.png" alt="home" />
         </Link>
       </div>
+      {ime} <br />
+      {prezime} <br />
+      {email} <br />
+      {password} <br />
       <div className="divZaRazdvanjanje">
         <div className="formDiv">
           <div className="niceToMeetDiv">
             <h2>Dobro došli</h2>
           </div>
-          <form
-            onSubmit={(e) => {
-              handleValues(e);
-            }}
-          >
+          <form>
             <label htmlFor="fname">Ime</label>
             <input
               type="text"
               id="fname"
               name="fname"
               onChange={(e) => {
-                user.ime = e.target.value;
-                console.log(user.ime);
+                setIme(e.target.value);
               }}
             />
             <label htmlFor="lname">Prezime</label>
@@ -56,7 +41,7 @@ const Register = () => {
               id="lname"
               name="fname"
               onChange={(e) => {
-                user.prezime = e.target.value;
+                setPrezime(e.target.value);
               }}
             />
             <label htmlFor="email">Email</label>
@@ -65,7 +50,7 @@ const Register = () => {
               id="email"
               name="email"
               onChange={(e) => {
-                user.email = e.target.value;
+                setEmail(e.target.value);
               }}
             />
             <label htmlFor="password">Lozinka</label>
@@ -74,7 +59,7 @@ const Register = () => {
               id="password"
               name="password"
               onChange={(e) => {
-                user.password = e.target.value;
+                setPassword(e.target.value);
               }}
             />
             <input

@@ -5,16 +5,16 @@ import { useState } from "react";
 
 const LogIn = () => {
   const [userSt, setUserSt] = useState({});
-  let user = { email: userSt.email, password: userSt.password };
 
   console.log(userSt);
 
   const onFinish = (e) => {
     e.preventDefault();
-    setUserSt({ email: user.email, password: user.password });
   };
   return (
     <div id="login">
+      {userSt.email} <br />
+      {userSt.password}
       <div className="homeDiv">
         <Link className="backToHomeBtn" to="/">
           <img src="home-icon.png" alt="home" />
@@ -33,7 +33,7 @@ const LogIn = () => {
               name="email"
               placeholder="Email"
               onChange={(e) => {
-                user.email = e.target.value;
+                setUserSt({ ...userSt, email: e.target.value });
               }}
             />
             <label htmlFor="password">Lozinka</label>
@@ -43,7 +43,7 @@ const LogIn = () => {
               name="password"
               placeholder="Password"
               onChange={(e) => {
-                user.password = e.target.value;
+                setUserSt({ ...userSt, password: e.target.value });
               }}
             />
             <input
