@@ -2,19 +2,52 @@ import React from "react";
 import "./login.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 const LogIn = () => {
   const [userSt, setUserSt] = useState({});
-
-  console.log(userSt);
-
-  const onFinish = (e) => {
-    e.preventDefault();
+  const [popup, setPopup] = useState();
+  const [submit, setSubmit] = useState(false);
+  const [message, setMassage] = useState("");
+  const onFinish = async (e) => {
+    setSubmit(true);
+    try {
+      e.preventDefault();
+      const response = await axios.post("/api/user/login", userSt);
+      console.log(response);
+      if (response.data.success === true) {
+        setPopup(true);
+        setMassage(response.data.massage);
+        localStorage.setItem("token", response.data.data);
+      } else {
+        setPopup(false);
+        setMassage(response.data.message);
+      }
+      // Navigate("/login"); ISTRAZI KAKO OVO????
+    } catch (error) {
+      e.preventDefault();
+      console.log(error);
+    }
   };
   return (
     <div id="login">
-      {userSt.email} <br />
-      {userSt.password}
+      <div className="popupParent">
+        <div className="apsoluteDiv">
+          {popup === true && submit === true ? (
+            <div className="popup">
+              <img src="tacno.png" alt="" />
+              <h3>{message}</h3>
+            </div>
+          ) : popup === false && submit === true ? (
+            <div className="popup">
+              <img src="wrong.png" alt="" />
+              <h3>{message}</h3>
+            </div>
+          ) : (
+            <div></div>
+          )}
+        </div>
+      </div>
       <div className="homeDiv">
         <Link className="backToHomeBtn" to="/">
           <img src="home-icon.png" alt="home" />
