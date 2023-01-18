@@ -1,6 +1,6 @@
 import React from "react";
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
@@ -9,6 +9,7 @@ const LogIn = () => {
   const [popup, setPopup] = useState();
   const [submit, setSubmit] = useState(false);
   const [message, setMassage] = useState("");
+  const navigate = useNavigate();
   const onFinish = async (e) => {
     setSubmit(true);
     try {
@@ -17,8 +18,9 @@ const LogIn = () => {
       console.log(response);
       if (response.data.success === true) {
         setPopup(true);
-        setMassage(response.data.massage);
+        setMassage(response.data.message);
         localStorage.setItem("token", response.data.data);
+        navigate("/");
       } else {
         setPopup(false);
         setMassage(response.data.message);
@@ -33,12 +35,7 @@ const LogIn = () => {
     <div id="login">
       <div className="popupParent">
         <div className="apsoluteDiv">
-          {popup === true && submit === true ? (
-            <div className="popup">
-              <img src="tacno.png" alt="" />
-              <h3>{message}</h3>
-            </div>
-          ) : popup === false && submit === true ? (
+          {popup === false && submit === true ? (
             <div className="popup">
               <img src="wrong.png" alt="" />
               <h3>{message}</h3>

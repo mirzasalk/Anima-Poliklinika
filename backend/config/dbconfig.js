@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
-
+//OVDE JE SVE VEZANO ZA KONEKCIJU SA BAZOM
 const connectDatabase = () => {
   mongoose.connect(process.env.MONGO_URL);
 

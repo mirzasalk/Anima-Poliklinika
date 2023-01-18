@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema( //OVAKO SE PRAVI SEMA PO KOJOJ SE FORMIRAJU KORISNICI
   {
     fname: {
       type: String,
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true,
+    timestamps: true, //ZA DOBIJANJE REALNOG VREMENA FORMIRANJA KORISNIKA
   }
 );
 

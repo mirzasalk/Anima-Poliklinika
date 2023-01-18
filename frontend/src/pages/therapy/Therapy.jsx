@@ -1,10 +1,7 @@
-import React from "react";
-import NavBar from "../../components/navBAR/navbar";
-import "./home.css";
+import react from "react";
 import axios from "axios";
 import { useEffect } from "react";
-
-const Home = () => {
+const Therapy = () => {
   const getData = async () => {
     try {
       const response = await axios.post(
@@ -16,7 +13,6 @@ const Home = () => {
           },
         }
       );
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -25,10 +21,7 @@ const Home = () => {
   useEffect(() => {
     getData();
   }, []);
-  return (
-    <div id="home">
-      <NavBar />
-    </div>
-  );
+  return "Therapy";
 };
-export default Home;
+
+export default Therapy;
